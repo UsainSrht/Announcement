@@ -1,0 +1,23 @@
+#when broadcast is true, console will get announcements too.
+broadcast: false
+#when ordered is true, announcements will sent in order.
+ordered: false
+#time between announcements, in seconds.
+delay: 300
+command:
+  name: "announcement"
+  description: "command to announce custom messages"
+  usage: "/announcement <message>"
+  permission: "announcement.use"
+#Formatting docs: https://docs.adventure.kyori.net/minimessage/format.html
+template:
+  - ""
+  - "<centered><gradient:#FF8B13:#E06FF2><bold>ANNOUNCEMENT</bold></gradient></centered>"
+  - ""
+  - "<centered><announcement></centered>"
+  - ""
+announcements:
+  - "You <gold>can <gray>do <yellow>x"
+  - "You <gold>can't <gray>do <red>y"
+  - "You <gold>might be able to <gray>do <green>z"
+  - "You <gold>might not be able to <gray>do <blue>t"
