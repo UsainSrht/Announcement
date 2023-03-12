@@ -24,12 +24,12 @@ public class CenterTag implements Modifying {
             .build();
 
     public char centerChar = ' ';
-    public int length = 266;
+    public int length = 320;
     public boolean visited;
 
     static Tag create(final ArgumentQueue args, final Context ctx) {
 
-        int length = 266;
+        int length = 320;
         char centerChar = ' ';
         if (args.hasNext())
             length = Integer.parseInt(args.pop().value());
@@ -53,7 +53,7 @@ public class CenterTag implements Modifying {
     @Override
     public Component apply(@NotNull Component current, int depth) {
         if (depth == 0) {
-            current = CenterUtil.centeredComponent(current, 266,  ' ');
+            current = CenterUtil.centeredComponent(current, length,  centerChar);
         }
         else current = Component.empty();
         /*Bukkit.broadcast(Component.text("apply ").append(Component.text(depth))

@@ -41,7 +41,6 @@ public final class Announcement extends JavaPlugin {
                 announce();
             }
         }.runTaskTimer(instance, 0, getConfig().getInt("delay") * 20L);
-        CenterTag.centerTagMM.deserialize("<centered>helloğ");
     }
 
     @Override

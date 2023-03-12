@@ -2,8 +2,8 @@ package com.purpurmc.announcement.utils;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextDecoration;
+import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
-import org.bukkit.ChatColor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,22 +23,8 @@ public class CenterUtil {
         return width;
     }
     public static int getWidth(String text) {
-        int width = 0;
-        String[] list = text.split("§l");
-        int bold = 0;
-        for (String string : list) {
-            bold++;
-            String unformatted = ChatColor.stripColor(string);
-            char[] chars = new char[unformatted.length()];
-            unformatted.getChars(0, unformatted.length(), chars, 0);
-            for (char c : chars) {
-                width += getWidth(c);
-                if (bold % 2 == 0) {
-                    width++;
-                }
-            }
-        }
-        return width;
+        Component component = LegacyComponentSerializer.legacyAmpersand().deserialize(text);
+        return getComponentWidth(component);
     }
     public static String centeredText(String text, int length, char centerChar) {
         int compensated = 0;
@@ -52,7 +38,14 @@ public class CenterUtil {
     }
 
     public static int getComponentWidth(Component component) {
-        int width = getWidth(PlainTextComponentSerializer.plainText().serialize(component));
+        int width = 0;
+        String plain = PlainTextComponentSerializer.plainText().serialize(component);
+        char[] chars = new char[plain.length()];
+        plain.getChars(0, plain.length(), chars, 0);
+        for (char c : chars) {
+            //+1 is gap between two chars
+            width += getWidth(c) + 1;
+        }
         for (Component child : getBolds(component)) {
             width += PlainTextComponentSerializer.plainText().serialize(child).length();
         }
