@@ -91,7 +91,7 @@ public final class Announcement extends JavaPlugin {
         for (String line : getInstance().getConfig().getStringList("template")) {
             announcement = announcement.append(CenterTag.centerTagMM.deserialize(line
             , Placeholder.component("announcement", message)));
-            announcement = announcement.append(Component.newline());
+            announcement = announcement.appendNewline();
         }
         if (getInstance().getConfig().getBoolean("broadcast")) {
             Bukkit.broadcast(announcement);

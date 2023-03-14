@@ -54,9 +54,14 @@ public class CenterUtil {
 
     public static List<Component> getBolds(Component component) {
         List<Component> newList = new ArrayList<>();
-        for (Component child : component.children()) {
-            if (child.hasDecoration(TextDecoration.BOLD)) {
-                newList.add(child);
+        if (component.hasDecoration(TextDecoration.BOLD)) {
+            newList.add(component);
+        }
+        else {
+            for (Component child : component.children()) {
+                if (child.hasDecoration(TextDecoration.BOLD)) {
+                    newList.add(child);
+                }
             }
         }
         return newList;
@@ -65,10 +70,11 @@ public class CenterUtil {
     public static Component centeredComponent(Component component, int length, char centerChar) {
         int compensated = 0;
         int width = getComponentWidth(component);
+        int centerCharWidth = getWidth(centerChar) + 1;
         StringBuilder centered = new StringBuilder();
         while (compensated < ((length - width) / 2)) {
             centered.append(centerChar);
-            compensated += getWidth(centerChar) + 1;
+            compensated += centerCharWidth;
         }
         return Component.text(centered.toString()).append(component);
     }
