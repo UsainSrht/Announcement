@@ -1,4 +1,4 @@
-package com.purpurmc.announcement.utils;
+package me.usainsrht.announcement.utils;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextDecoration;

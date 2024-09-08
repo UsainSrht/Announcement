@@ -1,6 +1,6 @@
-package com.purpurmc.announcement.command;
+package me.usainsrht.announcement.command;
 
-import com.purpurmc.announcement.Announcement;
+import me.usainsrht.announcement.Announcement;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.command.Command;

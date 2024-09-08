@@ -9,6 +9,9 @@ command:
   description: "command to announce custom messages"
   usage: "/announcement <message>"
   permission: "announcement.use"
+# true = creates a custom minimessage instance (allows <centered> tag)
+# false = uses server's default minimessage instance (no <centered> tag)
+use_custom_minimessage: true
 #Formatting docs: https://docs.adventure.kyori.net/minimessage/format.html
 template:
   - ""

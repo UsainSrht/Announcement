@@ -1,8 +1,8 @@
 name: Announcement
 version: '${project.version}'
-main: com.purpurmc.announcement.Announcement
-api-version: 1.19
+main: me.usainsrht.announcement.Announcement
+api-version: 1.21
 prefix: Announcement
-softdepend: [ Bridge ]
+softdepend: [ PlaceholderAPI ]
 authors: [ UsainSrht ]
 description: Simple announcement plugin.

@@ -1,4 +1,4 @@
-package com.purpurmc.announcement.utils;
+package me.usainsrht.announcement.utils;
 
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package com.purpurmc.announcement.command;
+package me.usainsrht.announcement.command;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
