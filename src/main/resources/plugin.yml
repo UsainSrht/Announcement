@@ -1,7 +1,7 @@
 name: Announcement
 version: '${project.version}'
 main: me.usainsrht.announcement.Announcement
-api-version: 1.21
+api-version: 1.18
 prefix: Announcement
 softdepend: [ PlaceholderAPI ]
 authors: [ UsainSrht ]
