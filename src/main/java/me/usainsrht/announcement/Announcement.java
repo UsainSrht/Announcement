@@ -21,6 +21,7 @@ public final class Announcement extends JavaPlugin {
     public static int announcementIndex = 0;
     public static BukkitTask timer = null;
     public static MiniMessage miniMessage;
+    public static AnnouncementCommand command;
 
     @Override
     public void onEnable() {
@@ -28,10 +29,11 @@ public final class Announcement extends JavaPlugin {
 
         saveDefaultConfig();
 
-        CommandHandler.register(new AnnouncementCommand(getConfig().getString("command.name"),
+        command = new AnnouncementCommand(getConfig().getString("command.name"),
                 getConfig().getString("command.description"),
                 getConfig().getString("command.usage"),
-                new ArrayList<>()));
+                new ArrayList<>());
+        CommandHandler.register("announcement", command);
 
         if (getConfig().getBoolean("use_custom_minimessage", true)) {
             miniMessage = CenterTag.centerTagMM;
@@ -90,7 +92,7 @@ public final class Announcement extends JavaPlugin {
         for (String line : getInstance().getConfig().getStringList("template")) {
             announcement = announcement.append(miniMessage.deserialize(line
             , Placeholder.component("announcement", message)));
-            announcement = announcement.appendNewline();
+            announcement = announcement.append(Component.newline());
         }
 
         if (getInstance().getConfig().getBoolean("broadcast")) {

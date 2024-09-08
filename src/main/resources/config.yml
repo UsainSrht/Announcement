@@ -17,7 +17,7 @@ template:
   - ""
   - "<centered><gradient:#FF8B13:#E06FF2><bold>ANNOUNCEMENT</bold></gradient></centered>"
   - ""
-  - "<centered><announcement></centered>"
+  - "<centered><gray><announcement></centered>"
   - ""
 announcements:
   - "You <gold>can <gray>do <yellow>x"
