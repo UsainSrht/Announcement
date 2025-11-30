@@ -29,7 +29,7 @@ public final class Announcement extends JavaPlugin {
 
         saveDefaultConfig();
 
-        command = new AnnouncementCommand(getConfig().getString("command.name"),
+        command = new AnnouncementCommand(getConfig().getString("command.name", "announcement"),
                 getConfig().getString("command.description"),
                 getConfig().getString("command.usage"),
                 new ArrayList<>());
@@ -49,7 +49,7 @@ public final class Announcement extends JavaPlugin {
             public void run() {
                 announce();
             }
-        }.runTaskTimer(instance, 0, getConfig().getInt("delay") * 20L);
+        }.runTaskTimer(instance, 0, getConfig().getInt("delay", 300) * 20L);
 
     }
 
@@ -73,7 +73,15 @@ public final class Announcement extends JavaPlugin {
     }
 
     public static void announce() {
-        List<String> announcements = getInstance().getConfig().getStringList("announcements");
+        List<String> announcements;
+        if (getInstance().getConfig().isSet("announcements")) {
+            announcements = getInstance().getConfig().getStringList("announcements");
+        } else {
+            announcements = new ArrayList<>();
+        }
+
+        if (announcements.isEmpty()) return;
+
         if (getInstance().getConfig().getBoolean("ordered")) {
             announce(announcements.get(announcementIndex % announcements.size()));
             announcementIndex++;
