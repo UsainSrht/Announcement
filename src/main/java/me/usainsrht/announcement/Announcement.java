@@ -77,6 +77,7 @@ public final class Announcement extends JavaPlugin {
 
     public static void announce() {
         List<String> announcements = getInstance().getConfig().getStringList("announcements");
+        if (announcements.isEmpty()) return;
         if (getInstance().getConfig().getBoolean("ordered")) {
             announce(announcements.get(announcementIndex % announcements.size()));
             announcementIndex++;
