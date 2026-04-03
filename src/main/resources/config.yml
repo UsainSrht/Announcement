@@ -12,7 +12,7 @@ command:
 # true = creates a custom minimessage instance (allows <centered> tag)
 # false = uses server's default minimessage instance (no <centered> tag)
 use_custom_minimessage: true
-#Formatting docs: https://docs.adventure.kyori.net/minimessage/format.html
+#Formatting docs: https://docs.papermc.io/adventure/minimessage/format/#rainbow
 template:
   - ""
   - "<centered><gradient:#FF8B13:#E06FF2><bold>ANNOUNCEMENT</bold></gradient></centered>"
