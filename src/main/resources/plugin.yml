@@ -1,9 +1,0 @@
-name: Announcement
-version: '${project.version}'
-main: me.usainsrht.announcement.Announcement
-api-version: 1.18
-folia-supported: true
-prefix: Announcement
-softdepend: [ PlaceholderAPI ]
-authors: [ UsainSrht ]
-description: Simple announcement plugin.
