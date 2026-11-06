@@ -20,7 +20,7 @@ public final class AnnConfig {
         Path target = dir.resolve("config.yml");
         if (Files.exists(target)) return;
         Files.createDirectories(dir);
-        try (InputStream in = resourceOwner.getResourceAsStream("/config.yml")) {
+        try (InputStream in = resourceOwner.getResourceAsStream("/announcement/default-config.yml")) {
             if (in == null) throw new IOException("bundled config.yml missing");
             Files.copy(in, target, StandardCopyOption.REPLACE_EXISTING);
         }
