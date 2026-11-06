@@ -1,26 +1,60 @@
-#when broadcast is true, console will get announcements too.
+# ---------------------------------------------------------------------------------------------
+# Announcement - one jar for Spigot, Paper, Purpur, Folia, Fabric, Forge and NeoForge.
+# Plugin config:  plugins/Announcement/config.yml      Mod config: config/announcement/config.yml
+# ---------------------------------------------------------------------------------------------
+
+# when broadcast is true, console will get announcements too.
 broadcast: false
-#when ordered is true, announcements will sent in order.
+# when ordered is true, announcements will sent in order.
 ordered: false
-#time between announcements, in seconds.
+# time between announcements, in seconds.
 delay: 300
+
 command:
   name: "announcement"
   description: "command to announce custom messages"
   usage: "/announcement <message>"
+  # plugins: permission node. mods: same rule as vanilla /tellraw (operators).
   permission: "announcement.use"
-# true = creates a custom minimessage instance (allows <centered> tag)
-# false = uses server's default minimessage instance (no <centered> tag)
+
+placeholders:
+  # true  = every player gets the announcement parsed with THEIR OWN placeholders
+  #         (PlaceholderAPI %player_name% / MiniPlaceholders <player_name>, ...)
+  # false = the announcement is parsed once with global placeholders only and the very same
+  #         message is sent to everyone.
+  # A single announcement can override this, see the examples below.
+  # Built-in everywhere, no placeholder plugin needed: %player_name% %server_time% %server_date%
+  per_player: true
+
+client:
+  # Fabric/Forge/NeoForge on a game CLIENT: show the announcements in your own chat while you are
+  # connected to a server that does not run this mod. (Singleplayer is handled like a server.)
+  enabled: true
+
+# true = uses the bundled MiniMessage instance that adds the <centered> tag
+# false = uses the server's default MiniMessage instance (no <centered> tag)
+# Paper/Purpur/Folia render with the full MiniMessage of the server (+ MiniPlaceholders).
+# Spigot and all mod loaders use a bundled MiniMessage subset: colors, #hex, bold/italic/underlined/
+# strikethrough/obfuscated, reset, newline, gradient, rainbow, centered, click, hover:show_text.
+# Formatting docs: https://docs.advntr.dev/minimessage/format.html
 use_custom_minimessage: true
-#Formatting docs: https://docs.adventure.kyori.net/minimessage/format.html
+
 template:
   - ""
   - "<centered><gradient:#FF8B13:#E06FF2><bold>ANNOUNCEMENT</bold></gradient></centered>"
   - ""
   - "<centered><gray><announcement></centered>"
   - ""
+
+# Entries are plain strings, or maps with a per-announcement placeholder mode.
 announcements:
   - "You <gold>can <gray>do <yellow>x"
   - "You <gold>can't <gray>do <red>y"
   - "You <gold>might be able to <gray>do <green>z"
   - "You <gold>might not be able to <gray>do <blue>t"
+  # parsed for each player separately:
+  - message: "Hey <yellow>%player_name%<gray>, remember to vote!"
+    per_player: true
+  # parsed once and sent identically to everyone:
+  - message: "Server time is <aqua>%server_time%"
+    per_player: false

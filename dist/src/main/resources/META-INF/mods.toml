@@ -1,0 +1,15 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="All-Rights-Reserved"
+# 1.20.2+ : a client without this mod may join a server that has it (and the other way around)
+displayTest="IGNORE_ALL_VERSIONS"
+
+[[mods]]
+modId="announcement"
+version="${project.version}"
+displayName="Announcement"
+authors="UsainSrht"
+logoFile="icon.png"
+description='''
+Simple announcement mod. Works on servers and on clients.
+'''

@@ -1,0 +1,13 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="All-Rights-Reserved"
+
+[[mods]]
+modId="announcement"
+version="${project.version}"
+displayName="Announcement"
+authors="UsainSrht"
+logoFile="icon.png"
+description='''
+Simple announcement mod. Works on servers and on clients.
+'''

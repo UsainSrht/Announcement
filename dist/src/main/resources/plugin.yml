@@ -1,0 +1,9 @@
+name: Announcement
+version: '${project.version}'
+main: me.usainsrht.announcement.bukkit.Announcement
+api-version: '1.16'
+folia-supported: true
+prefix: Announcement
+softdepend: [ PlaceholderAPI, MiniPlaceholders ]
+authors: [ UsainSrht ]
+description: Simple announcement plugin.

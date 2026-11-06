@@ -1,4 +1,4 @@
-package me.usainsrht.announcement.utils;
+package me.usainsrht.announcement.paper;
 
 import java.util.Objects;
 

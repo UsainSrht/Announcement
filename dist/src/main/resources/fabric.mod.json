@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "announcement",
+  "version": "${project.version}",
+  "name": "Announcement",
+  "description": "Simple announcement mod. Works on servers and on clients.",
+  "authors": ["UsainSrht"],
+  "license": "All-Rights-Reserved",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["me.usainsrht.announcement.mod.FabricEntry"]
+  },
+  "depends": {
+    "fabricloader": ">=0.9.0",
+    "java": ">=8"
+  }
+}
